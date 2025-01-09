@@ -18,33 +18,36 @@ Make a clear list of features that work/dont work
 
 ## Adventurer Subclasses
 
-replace this with your documentation for your two Adventurer subclasses. If you modify or replace the provided CodeWarrior class, please provide documentation for that as well.
+Thief: already made 
+> (low stats, gives special and special steals special from enemies and heals self, damages a little)
 
-Thief: already made (low stats, gives special and special steals special from enemies and heals self, damages a little)
+Healer: 
+> less low health than ^, heals (4hp?), special heals all
 
-Healer: less low health than ^, heals (4hp?), special heals all
+Knight: 
+> mid health (27?) high attack (6?) weak support, special attacks all enemies
 
-Knight: mid health (27?) high attack (6?) weak support, special attacks all enemies
+Skeleton: 
+> low/mid states (10hp, 3/4 attack, weak support, special is probably to heal self fully)
 
-Skeleton: low/mid states (10hp, 3/4 attack, weak support, special is probably to heal self fully)
+*Skeleton King* (boss): 
+> 50 hp, 8 attack, special summons skeletons (if team isn't full), support gives himself full special (low amt, more of a turn he uses to charge)
 
-Skeleton King: 50 hp, 8 attack, special summons skeletons (if team isn't full), support gives himself full special (low amt, more of a turn he uses to charge)
+## Gameplay Details
 
-### stuff we have to do
+- Generate a random party of three adventurers (should have all 3 types of adventurers)
 
-Generate a random party of three adventurers (should have all 3 types of adventurers)
+- Play against 1-3 random adventurers (3 normal, 2 normal, or 1 boss)
 
-Play against 1-3 random adventurers (3 normal, 2 normal, or 1 boss)
+- Use attacks/specials on enemies
 
-Use attacks/specials on enemies
+- Use support on team
 
-Use support on team
+- Parse input to do ^, or quit
 
-Parse input to do ^, or quit
+- Display results as text inside border
 
-Display results as text inside border
-
-### stuff that'd be cool
+### Possible Additional features
 
 Display enemy stats / names on top Name, Health, Special
 
