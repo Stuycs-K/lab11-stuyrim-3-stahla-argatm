@@ -162,12 +162,14 @@ public class Game{
       if(partyTurn){
 
         //Process user input for the last Adventurer:
-        if(input.equals("attack") || input.equals("a")){
+        if(input.equals("attack ") || input.equals("a ")){
+          //number after
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
           //YOUR CODE HERE
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
-        else if(input.equals("special") || input.equals("sp")){
+        else if(input.equals("special ") || input.equals("sp ")){
+          //number after
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
           //YOUR CODE HERE
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
