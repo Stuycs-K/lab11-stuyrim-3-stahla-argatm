@@ -49,17 +49,17 @@ Skeleton:
 
 ### Possible Additional features
 
-Display enemy stats / names on top Name, Health, Special
+[ ] Display enemy stats / names on top Name, Health, Special
 
-Display friendly stats ^ on bottom
+[ ] Display friendly stats ^ on bottom
 
-Display friendlies / enemies as sprites in the middle (gonna be hard)
+[ ] Display friendlies / enemies as sprites in the middle (gonna be hard)
 
-Make values that change be highlighted briefly, then go back to normal
+[ ] Make values that change be highlighted briefly, then go back to normal
 
-Make hit characters shake for a little (change sprite draw offset) for a bit (VERY HARD)
+[ ] Make hit characters shake for a little (change sprite draw offset) for a bit (VERY HARD)
 
-Probably some other stuff too
+...Add more features later possibly...
 
 
 
