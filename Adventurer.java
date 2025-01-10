@@ -2,6 +2,7 @@ import java.util.Random;
 public abstract class Adventurer{
   private String name;
   private int HP,maxHP;
+  private int[] team;
 
   //Abstract methods are meant to be implemented in child classes.
   /*
@@ -65,10 +66,11 @@ public abstract class Adventurer{
     this(name, 10);
   }
 
-  public Adventurer(String name, int hp){
+  public Adventurer(String name, int hp, team){
     this.name = name;
     this.HP = hp;
     this.maxHP = hp;
+    this.team = team;
   }
 
   //toString method
@@ -88,6 +90,11 @@ public abstract class Adventurer{
   public int getmaxHP(){
     return maxHP;
   }
+
+  public int[] getTeam() {
+      return team;
+  }
+
   public void setmaxHP(int newMax){
     maxHP = newMax;
   }
