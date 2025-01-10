@@ -1,30 +1,84 @@
 import java.util.*;
-public class Game{
+public class Game
+{
   private static final int WIDTH = 80;
   private static final int HEIGHT = 30;
   private static final int BORDER_COLOR = Text.BLACK;
   private static final int BORDER_BACKGROUND = Text.WHITE + Text.BACKGROUND;
 
-  public static void main(String[] args) {
-    run();
-  }
+    public static void main(String[] args)
+    {
+        //run();
+        Text.clear();
+        allspaces();
+        drawBackground();
+    }
+    public static void allspaces() // prints 80x30 spaces. this is so we can jump around the terminal in drawBG.
+    {
+        String thingy = "";
+        for(int i = 0; i < 20; i++)
+        {
+            thingy += "    ";
+        }
+        for(int i = 0; i < 30; i++)
+        {
+            System.out.println(thingy);
+        }
+    }
 
-  //Display the borders of your screen that will not change.
-  //Do not write over the blank areas where text will appear or parties will appear.
-  public static void drawBackground(){
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
-    /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-  }
+
+    //Display the borders of your screen that will not change.
+    //Do not write over the blank areas where text will appear or parties will appear.
+    public static void drawBackground()
+    {
+
+
+        /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+        //YOUR CODE HERE
+        /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+        // draw borders i guess?
+
+        String vborder = "X";
+        for(int i = 0; i < 39; i++)
+        {
+            vborder += "--";
+        }
+        vborder += "X";
+        drawText(vborder, 1, 1);
+        drawText(vborder, 4, 1); // row then column (y then x);
+        drawText(vborder, 29, 1);
+        drawText(vborder, 26, 1);
+
+        for(int y = 2; y < 31; y++)
+        {
+            if(y == 4 | y == 26 | y == 29)
+                continue;
+            drawText("|", y, 1);
+            drawText("|", y, 80);
+        }
+
+        // this is apparently not counting from 0, very weird
+
+        // draw vertical borders
+
+        Text.go(31, 0);
+    }
 
   //Display a line of text starting at
   //(columns and rows start at 1 (not zero) in the terminal)
   //use this method in your other text drawing methods to make things simpler.
-  public static void drawText(String s,int startRow, int startCol){
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
-    /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-  }
+    public static void drawText(String s,int startRow, int startCol)
+    {
+        /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+        //YOUR CODE HERE
+        /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+        Text.go(startRow, startCol);
+        System.out.print(s);
+
+        // it cant be this simple, i hope this works
+    }
 
   /*Use this method to place text on the screen at a particular location.
   *When the length of the text exceeds width, continue on the next line
