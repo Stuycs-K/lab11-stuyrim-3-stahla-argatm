@@ -4,7 +4,7 @@ public class Thief extends Adventurer
     {
         Thief(name, 18);
     }
-    public Thief (String name, int hp);
+    public Thief (String name, int hp)
     {
         super(name, hp);
         boldness = 6;
