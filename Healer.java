@@ -1,4 +1,4 @@
-public Healer extends Adventurer {
+public class Healer extends Adventurer {
     public Healer (String name)
     {
         Healer(name, 18);

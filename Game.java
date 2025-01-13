@@ -67,10 +67,6 @@ public class Game
     //use this method in your other text drawing methods to make things simpler.
     public static void drawText(String s,int startRow, int startCol)
     {
-        /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-        //YOUR CODE HERE
-        /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-
         Text.go(startRow, startCol);
         System.out.print(s);
 
@@ -97,11 +93,18 @@ public class Game
 
 
 
-    //return a random adventurer (choose between all available subclasses)
-    //feel free to overload this method to allow specific names/stats.
+    //return a random adventurer, excludes skeleton / boss
     public static Adventurer createRandomAdventurer()
     {
-        return new CodeWarrior("Bob"+(int)(Math.random()*100));
+        int type = (int)(Math.random() * 3);
+
+        Adventurer guy;
+        if(type == 2)
+            guy = new Knight("Mr. Knight", 27);
+        else if(type == 1)
+            guy = new Healer("Healy Healerson", 19);
+        guy = new Thief("Stealer dude", 17);
+        return guy;
     }
 
     /*Display a List of 2-4 adventurers on the rows row through row+3 (4 rows max)
@@ -115,8 +118,35 @@ public class Game
     */
     public static void drawParty(ArrayList<Adventurer> party,int startRow)
     {
+        // if drawing 3, each one has (80-2)/3 = 26 char for themselves. (effectively 25 to look good)
+        if(party.size() == 3)
+        {
+            int realsize = 25;
 
-      
+            for(int i = 0; i < 3; i++)
+            {
+                int startcol = 3 + 26*i;
+                Adventurer thisone = party.get(i);
+                drawText(fixedLength(thisone.getName(), "", 25), startRow, startCol);
+
+                // is it a good idea to cram hp and special in one line? idk...
+                String hpstuff = "HP: " + colorByPercent(thisone.getHP(), thisone.getMaxHP());
+                String specstuff = thisone.getSpecialName() + ": " + getSpecial();
+                drawText(fixedLength(hpstuff, specstuff, 25), startRow+1, startCol);
+            }
+        }
+        
+    }
+
+    public static String fixedLength(String start, String end, int len)
+    {
+        int toadd = len - (start.length() + end.length());
+        String addy = "";
+        for(int i = 0; i < toadd; i++)
+        {
+            addy += " ";
+        }
+        return start + addy + end;
     }
 
 
@@ -138,11 +168,15 @@ public class Game
     //Display the party and enemies
     //Do not write over the blank areas where text will appear.
     //Place the cursor at the place where the user will by typing their input at the end of this method.
+    ArrayList<Adventurer> enemies = new ArrayList<Adventurer>();
+    ArrayList<Adventurer> party = new ArrayList<Adventurer>();
     public static void drawScreen()
     {
         drawBackground();
 
         //draw player party
+
+        drawParty(party, 2);
 
         //draw enemy party
 
@@ -181,18 +215,31 @@ public class Game
     //Make an ArrayList of Adventurers and add 1-3 enemies to it.
     //If only 1 enemy is added it should be the boss class.
     //start with 1 boss and modify the code to allow 2-3 adventurers later.
-    ArrayList<Adventurer> enemies = new ArrayList<Adventurer>();
 
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
-    /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+    // TODO: add chosen boss mode later or something
+    // TODO: add random code for 1/2/3 enemies
+
+    if(true) // if 3 enemy mode
+    {
+        for(int i = 0; i < 3; i++)
+        {
+            enemies.add(createRandomAdventurer());
+        }
+    }
+    
 
     //Adventurers you control:
     //Make an ArrayList of Adventurers and add 2-4 Adventurers to it.
-    ArrayList<Adventurer> party = new ArrayList<>();
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
-    /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+    if(true) // also assume 3 player characters
+    {
+        for(int i = 0; i < 3; i++)
+        {
+            party.add(createRandomAdventurer());
+        }
+    }
+
 
     boolean partyTurn = true;
     int whichPlayer = 0;

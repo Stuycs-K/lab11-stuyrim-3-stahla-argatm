@@ -1,4 +1,4 @@
-public Knight extends Adventurer {
+public class Knight extends Adventurer {
     public Knight (String name)
     {
         Knight(name, 18);
