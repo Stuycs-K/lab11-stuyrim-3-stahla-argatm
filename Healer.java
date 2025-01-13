@@ -9,7 +9,7 @@ public Healer extends Adventurer {
         mana = 50;
     }
 
-    public String getSpecialName() {return "Plunder";}
+    public String getSpecialName() {return "Heal";}
     //accessor methods
     private int mana; // idk? thieves need to be brave to steal, i guess
     public int getSpecial() {return mana;}
@@ -19,24 +19,22 @@ public Healer extends Adventurer {
     //hurt or hinder the target adventurer
     public String attack(Adventurer other)
     {
-        other.applyDamage(2);
-        setSpecial(Math.min(getSpecial() + 1, getSpecialMax()));
+        other.applyDamage(1);
         return getName() + " attacked " + other.getName() + "!";
     }
     
     //heal or buff the target adventurer
     public String support(Adventurer other)
     {
-        other.restoreSpecial(2);
-        other.setHP(Math.min(other.getHP() + 1, other.getmaxHP()));
-        return getName() + " healed " + other.getName() + " and restored their special!";
+        other.setHP(Math.min(other.getHP()+3, other.getmaxHP()));
+        return getName() + " healed " + other.getName() + " by 3";
     }
 
     //heal or buff self
     public String support()
     {
-        setHP(Math.min(getHP() + 1, getmaxHP()));
-        setSpecial(Math.min(getSpecial() + 1, getSpecialMax()));
+        setHP(Math.min(getHP() + 3, getmaxHP()));
+        setSpecial(Math.min(getSpecial() + 7, getSpecialMax()));
         return getName() + " healed by 1 and became more daring!";
     }
 
@@ -45,18 +43,12 @@ public Healer extends Adventurer {
     {
         if(getSpecial() >= getSpecialMax())
         {
-            // steals other's special and damages other, heals self
-            setSpecial(0);
-            restoreSpecial(other.getSpecial() + 2); 
-            other.setSpecial(0);
-            other.applyDamage(3);
-            setHP(Math.min(getHP() + 2, getmaxHP()));
-            return getName() + " plundered " + other.getName() + "!";
+            other.setHP(Math.min(other.getHP()+10, other.getmaxHP()));
+            return getName() + " healed " + other.getName() + " by 10";
         }
         else
         {
-            // attacks instead
-            return getName() + " wussed out, instead " + attack(other);
+            return getName() + " does not have enough mana!";
         }
     }
 }
