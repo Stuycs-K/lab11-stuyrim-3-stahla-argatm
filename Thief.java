@@ -1,12 +1,12 @@
 public class Thief extends Adventurer
 {
-    public Thief (String name, int[] team)
+    public Thief (String name)
     {
-        Thief(name, 18, team);
+        Thief(name, 18);
     }
-    public Thief (String name, int hp, int[] team)
+    public Thief (String name, int hp);
     {
-        super(name, hp, team);
+        super(name, hp);
         boldness = 6;
     }
 
