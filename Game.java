@@ -103,7 +103,8 @@ public class Game
             guy = new Knight("Mr. Knight", 27);
         else if(type == 1)
             guy = new Healer("Healy Healerson", 19);
-        guy = new Thief("Stealer dude", 17);
+        else
+            guy = new Thief("Stealer dude", 17);
         return guy;
     }
 

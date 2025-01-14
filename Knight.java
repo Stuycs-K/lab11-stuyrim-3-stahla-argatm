@@ -1,10 +1,5 @@
- whtoei w
- uieh tuhrieur t
- haw weirhe wi ufhd is
-  iaueh fw
-  eufheuiw fhdusid fheuwihfda
-   hsudifhe whauidf
-weufhpublic class Knight extends Adventurer {
+public class Knight extends Adventurer
+{
     public Knight (String name)
     {
         super(name, 18);
