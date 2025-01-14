@@ -1,12 +1,13 @@
 public class Healer extends Adventurer {
     public Healer (String name)
     {
-        Healer(name, 18);
+        super(name, 18);
+        mana = 5;
     }
     public Healer (String name, int hp)
     {
         super(name, hp);
-        mana = 50;
+        mana = 5;
     }
 
     public String getSpecialName() {return "Heal";}

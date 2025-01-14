@@ -2,7 +2,8 @@ public class Thief extends Adventurer
 {
     public Thief (String name)
     {
-        Thief(name, 18);
+        super(name, 18);
+        boldness = 6;
     }
     public Thief (String name, int hp)
     {

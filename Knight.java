@@ -1,12 +1,13 @@
 public class Knight extends Adventurer {
     public Knight (String name)
     {
-        Knight(name, 18);
+        super(name, 18);
+        chivalry = 5;
     }
     public Knight (String name, int hp)
     {
         super(name, hp);
-        chivalry = 50;
+        chivalry = 5;
     }
 
     public String getSpecialName() {return "Plunder";}
