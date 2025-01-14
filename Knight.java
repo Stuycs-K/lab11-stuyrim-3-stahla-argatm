@@ -11,7 +11,7 @@ public class Knight extends Adventurer
         chivalry = 5;
     }
 
-    public String getSpecialName() {return "Plunder";}
+    public String getSpecialName() {return "Chivalry";}
     //accessor methods
     private int chivalry;
     public int getSpecial() {return chivalry;}

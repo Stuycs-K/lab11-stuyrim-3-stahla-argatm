@@ -147,11 +147,11 @@ public class Game
 
                 drawText(fixedLength(hpstuff, specstuff, 25), startRow+1, startcol);
 
-                drawText("|", 2, 28);
-                drawText("|", 3, 28);
+                drawText("|", startRow, 28);
+                drawText("|", startRow+1, 28);
 
-                drawText("|", 2, 54);
-                drawText("|", 3, 54);
+                drawText("|", startRow, 54);
+                drawText("|", startRow+1, 54);
             }
         }
         
@@ -195,9 +195,9 @@ public class Game
 
         //draw player party
 
-        drawParty(party, 2);
+        drawParty(party, 27);
 
-        //draw enemy party
+        drawParty(enemies, 2);
 
         Text.go(31, 1);
 
