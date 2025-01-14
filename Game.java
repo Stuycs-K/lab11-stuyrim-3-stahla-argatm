@@ -127,12 +127,30 @@ public class Game
             {
                 int startcol = 3 + 26*i;
                 Adventurer thisone = party.get(i);
-                //drawText(fixedLength(thisone.getName(), "", 25), startRow, startcol);
+
+                if(i != 0)
+                    drawText(fixedLength(thisone.getName(), "", 24), startRow, startcol+1);
+                else 
+                    drawText(fixedLength(thisone.getName(), "", 25), startRow, startcol);
 
                 // is it a good idea to cram hp and special in one line? idk...
-                String hpstuff = "HP: " + colorByPercent(thisone.getHP(), thisone.getmaxHP());
-                String specstuff = thisone.getSpecialName() + ": " + thisone.getSpecial();
-                //drawText(fixedLength(hpstuff, specstuff, 25), startRow+1, startcol);
+                String hpstuff = "";
+                String specstuff = "";
+                if(i != 0) // makes it have a border of 1 space, gotta do this cause screen doesn't cleanly divide
+                {
+                    hpstuff = " ";
+                    specstuff = " ";
+                }
+                hpstuff += "HP: " + colorByPercent(thisone.getHP(), thisone.getmaxHP());
+                specstuff += thisone.getSpecialName() + ": " + thisone.getSpecial() + " ";
+
+                drawText(fixedLength(hpstuff, specstuff, 25), startRow+1, startcol);
+
+                drawText("|", 2, 28);
+                drawText("|", 3, 28);
+
+                drawText("|", 2, 54);
+                drawText("|", 3, 54);
             }
         }
         
@@ -179,6 +197,8 @@ public class Game
         drawParty(party, 2);
 
         //draw enemy party
+
+        Text.go(31, 1);
 
     }
 
