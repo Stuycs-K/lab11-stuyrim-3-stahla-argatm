@@ -127,12 +127,12 @@ public class Game
             {
                 int startcol = 3 + 26*i;
                 Adventurer thisone = party.get(i);
-                drawText(fixedLength(thisone.getName(), "", 25), startRow, startCol);
+                //drawText(fixedLength(thisone.getName(), "", 25), startRow, startcol);
 
                 // is it a good idea to cram hp and special in one line? idk...
-                String hpstuff = "HP: " + colorByPercent(thisone.getHP(), thisone.getMaxHP());
-                String specstuff = thisone.getSpecialName() + ": " + getSpecial();
-                drawText(fixedLength(hpstuff, specstuff, 25), startRow+1, startCol);
+                String hpstuff = "HP: " + colorByPercent(thisone.getHP(), thisone.getmaxHP());
+                String specstuff = thisone.getSpecialName() + ": " + thisone.getSpecial();
+                //drawText(fixedLength(hpstuff, specstuff, 25), startRow+1, startcol);
             }
         }
         
@@ -168,8 +168,8 @@ public class Game
     //Display the party and enemies
     //Do not write over the blank areas where text will appear.
     //Place the cursor at the place where the user will by typing their input at the end of this method.
-    ArrayList<Adventurer> enemies = new ArrayList<Adventurer>();
-    ArrayList<Adventurer> party = new ArrayList<Adventurer>();
+    static ArrayList<Adventurer> enemies = new ArrayList<Adventurer>();
+    static ArrayList<Adventurer> party = new ArrayList<Adventurer>();
     public static void drawScreen()
     {
         drawBackground();
