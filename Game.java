@@ -153,11 +153,11 @@ public class Game
 
                 drawText(fixedLength(hpstuff, specstuff, 25), startRow+1, startcol);
 
-                drawText("│", 2, 28);
-                drawText("│", 3, 28);
-
-                drawText("│", 2, 54);
-                drawText("│", 3, 54);
+                drawText("│", startRow, 28);
+                drawText("│", startRow+1, 28);
+                          
+                drawText("│", startRow, 54);
+                drawText("│", startRow+1, 54);
             }
         }
         
@@ -201,9 +201,9 @@ public class Game
 
         //draw player party
 
-        drawParty(party, 2);
+        drawParty(party, 27);
 
-        //draw enemy party
+        drawParty(enemies, 2);
 
         Text.go(31, 1);
 
@@ -212,9 +212,9 @@ public class Game
     public static String userInput(Scanner in)
     {
         //Move cursor to prompt location
-
+        Text.go(31, 1);
         //show cursor
-
+        Text.hideCursor();
         String input = in.nextLine();
 
         //clear the text that was written
@@ -281,28 +281,26 @@ public class Game
 
     //Main loop
 
-    if(true)
-        return; // <-- this just stops errors while i do everything above it
-
     //display this prompt at the start of the game.
     String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
 
-    while(! (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit"))){
-      //Read user input
-      input = userInput(in);
+    while(! (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit")))
+    {
+        //Read user input
+        input = userInput(in);
 
-      //example debug statment
-      TextBox(24,2,1,78,"input: "+input+" partyTurn:"+partyTurn+ " whichPlayer="+whichPlayer+ " whichOpp="+whichOpponent );
+        //example debug statment
+        TextBox(24,2,1,78,"input: "+input+" partyTurn:"+partyTurn+ " whichPlayer="+whichPlayer+ " whichOpp="+whichOpponent );
 
-      //display event based on last turn's input
-      if(partyTurn){
+        //display event based on last turn's input
+        if(partyTurn){
 
         //Process user input for the last Adventurer:
         if(input.equals("attack ") || input.equals("a ")){
-          //number after
-          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          //YOUR CODE HERE
-          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+            //number after
+            /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+            //YOUR CODE HERE
+            /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
         else if(input.equals("special ") || input.equals("sp ")){
           //number after
