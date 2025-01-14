@@ -1,4 +1,10 @@
-public class Knight extends Adventurer {
+ whtoei w
+ uieh tuhrieur t
+ haw weirhe wi ufhd is
+  iaueh fw
+  eufheuiw fhdusid fheuwihfda
+   hsudifhe whauidf
+weufhpublic class Knight extends Adventurer {
     public Knight (String name)
     {
         Knight(name, 18);
@@ -11,7 +17,7 @@ public class Knight extends Adventurer {
 
     public String getSpecialName() {return "Plunder";}
     //accessor methods
-    private int chivalry; // idk? thieves need to be brave to steal, i guess
+    private int chivalry;
     public int getSpecial() {return chivalry;}
     public void setSpecial(int n) {chivalry = n;}
     public int getSpecialMax() {return 10;}
