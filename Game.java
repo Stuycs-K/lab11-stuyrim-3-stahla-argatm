@@ -36,13 +36,19 @@ public class Game
 
         // draw borders i guess?
 
-        String vborder = "X";
+        String vborder = "┏";
         for(int i = 0; i < 39; i++)
         {
-            vborder += "--";
+            vborder += "━━";
         }
-        vborder += "X";
+        vborder += "┓";
         drawText(vborder, 1, 1);
+        vborder = "┣";
+        for(int i = 0; i < 39; i++)
+        {
+            vborder += "━━";
+        }
+        vborder += "┫ ";
         drawText(vborder, 4, 1); // row then column (y then x);
         drawText(vborder, 29, 1);
         drawText(vborder, 26, 1);
@@ -51,8 +57,8 @@ public class Game
         {
             if(y == 4 | y == 26 | y == 29)
                 continue;
-            drawText("|", y, 1);
-            drawText("|", y, 80);
+            drawText("┃", y, 1);
+            drawText("┃", y, 80);
         }
 
         // this is apparently not counting from 0, very weird
@@ -147,11 +153,11 @@ public class Game
 
                 drawText(fixedLength(hpstuff, specstuff, 25), startRow+1, startcol);
 
-                drawText("|", startRow, 28);
-                drawText("|", startRow+1, 28);
-
-                drawText("|", startRow, 54);
-                drawText("|", startRow+1, 54);
+                drawText("│", startRow, 28);
+                drawText("│", startRow+1, 28);
+                          
+                drawText("│", startRow, 54);
+                drawText("│", startRow+1, 54);
             }
         }
         
