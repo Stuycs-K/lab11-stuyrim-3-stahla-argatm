@@ -10,6 +10,11 @@ public class Healer extends Adventurer {
         mana = 5;
     }
 
+    public boolean specialTargeted()
+    {
+        return false;
+    }
+
     public String getSpecialName() {return "Heal";}
     //accessor methods
     private int mana; // idk? thieves need to be brave to steal, i guess

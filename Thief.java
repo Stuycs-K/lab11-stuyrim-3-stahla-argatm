@@ -10,7 +10,10 @@ public class Thief extends Adventurer
         super(name, hp);
         boldness = 6;
     }
-
+    public boolean specialTargeted()
+    {
+        return true;
+    }
     public String getSpecialName() {return "Plunder";}
     //accessor methods
     private int boldness; // idk? thieves need to be brave to steal, i guess

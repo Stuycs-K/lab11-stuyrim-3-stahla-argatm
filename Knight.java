@@ -11,6 +11,11 @@ public class Knight extends Adventurer
         chivalry = 5;
     }
 
+    public boolean specialTargeted()
+    {
+        return false;
+    }
+
     public String getSpecialName() {return "Chivalry";}
     //accessor methods
     private int chivalry;

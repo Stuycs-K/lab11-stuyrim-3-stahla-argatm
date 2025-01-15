@@ -17,9 +17,9 @@ public class Game
         {
             thingy += "    ";
         }
-        for(int i = 0; i < 30; i++)
+        for(int i = 1; i < 31; i++)
         {
-            System.out.println(thingy);
+            drawText(thingy, i, 1);
         }
     }
 
@@ -28,7 +28,7 @@ public class Game
     //Do not write over the blank areas where text will appear or parties will appear.
     public static void drawBackground()
     {
-
+        allspaces();
 
         /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
         //YOUR CODE HERE
@@ -197,6 +197,7 @@ public class Game
     static ArrayList<Adventurer> party = new ArrayList<Adventurer>();
     public static void drawScreen()
     {
+        Text.clear();
         drawBackground();
 
         //draw player party
@@ -235,7 +236,7 @@ public class Game
         Text.hideCursor();
         Text.clear();
         allspaces();
-        drawBackground();
+        //drawBackground();
 
 
     //Things to attack:
