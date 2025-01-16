@@ -102,15 +102,19 @@ public class Game
     //return a random adventurer, excludes skeleton / boss
     public static Adventurer createRandomAdventurer()
     {
-        int type = (int)(Math.random() * 3);
+        String[] knames = {"Mr. Knight", "Richard", "Arthur", "Edward", "Henry 8th", "Joan of Arc"};
+        String[] hnames = {"Clara Barton", "Walt Whitman", "Obamacare", "Florence", "Henry 8th's wife"};
+        String[] tnames = {"Goblin man", "Hubert", "Liam", "Robin Hood", "Jesse James", "Al Capone"};
 
+        int type = (int)(Math.random() * 3);
+        int name = (int)(Math.random() * 6);
         Adventurer guy;
         if(type == 2)
-            guy = new Knight("Mr. Knight", 27);
+            guy = new Knight(knames[name], 27);
         else if(type == 1)
-            guy = new Healer("Healy Healerson", 19);
+            guy = new Healer(hnames[name], 19);
         else
-            guy = new Thief("Stealer dude", 17);
+            guy = new Thief(tnames[name], 17);
         return guy;
     }
 
@@ -308,8 +312,8 @@ public class Game
                         validinput = true;
                         String todraw = party.get(whichPlayer).attack(enemies.get(whichenemy-1));
                         drawScreen(); // update healths
-                        drawText(fixedLength(todraw, "[Enter]", 78), 31, 1);
-                        userInput(in);
+                        drawText(fixedLength(todraw, "[Enter]", 80), 31, 1);
+                        userInput(in); // lets user press enter
                     }
                 }
 
@@ -332,14 +336,14 @@ public class Game
                 //This is a player turn.
                 //Decide where to draw the following prompt:
                 String prompt = "Enter command for " + party.get(whichPlayer) + ": (a)ttack/(sp)ecial/(su)pport/(q)uit";
-                drawText(prompt, 31, 1);
+                drawText(fixedLength(prompt, "", 80), 31, 1);
             }
             else
             {
                 //This is after the player's turn, and allows the user to see the enemy turn
                 //Decide where to draw the following prompt:
                 String prompt = "press enter to see monster's turn";
-                drawText(prompt, 30, 2);
+                //drawText(prompt, 30, 2);
                 partyTurn = false;
                 whichOpponent = 0;
             }
@@ -376,7 +380,7 @@ whichOpponent++;
       }
 
       //display the updated screen after input has been processed.
-      drawScreen();
+      //drawScreen();
 
 
     }//end of main game loop
