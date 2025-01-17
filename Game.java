@@ -152,10 +152,13 @@ public class Game
                     hpstuff = " ";
                     specstuff = " ";
                 }
-                hpstuff += "HP: " + colorByPercent(thisone.getHP(), thisone.getmaxHP());
+                String cbp = String.format("%2s", thisone.getHP()+"")+"/"+String.format("%2s", thisone.getmaxHP()+"");
+                hpstuff += "HP: " + cbp;
+
+
                 specstuff += thisone.getSpecialName() + ": " + thisone.getSpecial() + " ";
 
-                drawText(fixedLength(hpstuff, specstuff, 25), startRow+1, startcol);
+                drawText(fixedLength(hpstuff, specstuff, 25, colorByPercent(thisone.getHP(), thisone.getmaxHP()), -1), startRow+1, startcol);
 
                 drawText("│", startRow, 28);
                 drawText("│", startRow+1, 28);
@@ -178,16 +181,35 @@ public class Game
         return start + addy + end;
     }
 
+    public static String fixedLength(String start, String end, int len, int startColor, int endColor) // if color = -1, don't
+    {
+        int toadd = len - (start.length() + end.length());
+        String addy = "";
+        for(int i = 0; i < toadd; i++)
+        {
+            addy += " ";
+        }
+        if(startColor != -1)
+            start = Text.colorize(start, startColor);
+        if(endColor != -1)
+            end = Text.colorize(end, endColor);
+        return start + addy + end;
+    }
 
     //Use this to create a colorized number string based on the % compared to the max value.
-    public static String colorByPercent(int hp, int maxHP)
+
+    // method changed, it returns the int color the text should be instead
+    public static int colorByPercent(int hp, int maxHP)
     {
-        String output = String.format("%2s", hp+"")+"/"+String.format("%2s", maxHP+"");
         //COLORIZE THE OUTPUT IF HIGH/LOW:
         // under 25% : red
+        if(((double)hp) / maxHP <= 0.25)
+            return Text.RED;
         // under 75% : yellow
+        else if(((double)hp) / maxHP <= 0.75)
+            return Text.YELLOW;
         // otherwise : white
-        return output;
+        return -1;
     }
 
 
