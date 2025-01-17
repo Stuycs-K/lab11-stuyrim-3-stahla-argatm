@@ -103,7 +103,7 @@ public class Game
     public static Adventurer createRandomAdventurer()
     {
         String[] knames = {"Mr. Knight", "Richard", "Arthur", "Edward", "Henry 8th", "Joan of Arc"};
-        String[] hnames = {"Clara Barton", "Walt Whitman", "Obamacare", "Florence", "Henry 8th's wife"};
+        String[] hnames = {"Clara Barton", "Walt Whitman", "Obamacare", "Florence", "Henry 8th's wife", "Healer Healyface"};
         String[] tnames = {"Goblin man", "Hubert", "Liam", "Robin Hood", "Jesse James", "Al Capone"};
 
         int type = (int)(Math.random() * 3);
@@ -348,7 +348,19 @@ public class Game
             }
             else if(input.startsWith("support") || input.startsWith("su"))
             {
-                validinput = true;
+                 String[] split = input.split(" ");
+                 if(split.length == 2)
+                 {
+                     int whichparty = Integer.parseInt(split[1]);
+                     if(whichparty > 0 & whichparty <= party.size())
+                     {
+                         validinput = true;
+                         String todraw = party.get(whichPlayer).support(party.get(whichparty-1));
+                         drawScreen(); // update healths
+                         drawText(fixedLength(todraw, "[Enter]", 80), 31, 1);
+                         userInput(in); // lets user press enter
+                     }
+                 }
             }
             if(validinput)
                 whichPlayer++;
