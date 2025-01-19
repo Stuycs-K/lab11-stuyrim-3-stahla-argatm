@@ -63,7 +63,7 @@ public class Healer extends Adventurer {
         }
         else
         {
-            return getName() + " doesn't have mana, instead " + support(other.get(0));
+            return getName() + " doesn't have mana, instead " + support(other.get(0)).substring(getName().length()+1);
         }
     }
 }

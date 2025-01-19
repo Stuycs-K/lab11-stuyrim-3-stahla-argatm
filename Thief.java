@@ -67,7 +67,7 @@ public class Thief extends Adventurer
         else
         {
             // attacks instead
-            return getName() + " wussed out, instead " + attack(target);
+            return getName() + " wussed out, instead " + attack(target).substring(getName().length()+1);
         }
     }
 }

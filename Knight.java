@@ -68,7 +68,7 @@ public class Knight extends Adventurer
         else
         {
             // attacks instead
-            return getName() + " was too weak, instead " + attack(other.get(0));
+            return getName() + " was too weak, instead " + attack(other.get(0)).substring(getName().length()+1);
         }
     }
 }
