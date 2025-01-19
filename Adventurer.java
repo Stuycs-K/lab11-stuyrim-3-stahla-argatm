@@ -70,7 +70,7 @@ public abstract class Adventurer{
 
   public Adventurer(String name, int hp){
     this.name = name;
-    this.HP = hp/2;
+    this.HP = hp;
     this.maxHP = hp;
   }
 

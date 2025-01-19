@@ -416,8 +416,8 @@ public class Game
             {
                 //This is after the player's turn, and allows the user to see the enemy turn
                 //Decide where to draw the following prompt:
-                String prompt = "press enter to see monster's turn";
-                //drawText(prompt, 30, 2);
+                String prompt = "Press [ENTER] to see opponent's turn";
+                drawText(fixedLength(prompt, "", 80), 31, 1);
                 partyTurn = false;
                 whichOpponent = 0;
             }
@@ -425,18 +425,33 @@ public class Game
         }
         else
         {
+            Adventurer thisOppo = enemies.get(whichOpponent);
             //not the party turn!
 
+            // Randomly chosen move
+            int choicebound = 2;
+            if(thisOppo.getSpecial() >= thisOppo.getSpecialMax()) // only tries special if it has enough resource
+                choicebound = 3;
 
-            //enemy attacks a randomly chosen person with a randomly chosen attack.z`
-            //Enemy action choices go here!
-            /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-            //YOUR CODE HERE
-            /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-
+            //int choice = (int)(Math.random() * choicebound);
+            int choice = 0;
+            if(choice == 1)
+            {}
+            else if(choice == 2)
+            {}
+            else
+            {
+                // attack
+                int targetchoice = (int)(Math.random() * party.size());
+                Adventurer target = party.get(targetchoice);
+                String todraw = thisOppo.attack(target);
+                drawScreen(); // update healths
+                drawText(fixedLength(todraw, "[Enter]", 80), 31, 1);
+                //userInput(in); // lets user press enter
+            }
 
             //Decide where to draw the following prompt:
-            String prompt = "press enter to see next turn";
+            //String prompt = "press enter to see next turn";
 
             whichOpponent++;
 
@@ -450,8 +465,11 @@ public class Game
             whichPlayer = 0;
             turn++;
             partyTurn=true;
+            userInput(in);
             //display this prompt before player's turn
-            String prompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
+            String prompt = party.get(whichPlayer) + "'s turn: choose (a)ttack/(sp)ecial/(su)pport/(q)uit + no. of target";
+            drawText(fixedLength(prompt, "", 80), 31, 1);
+            
         }
 
         //display the updated screen after input has been processed.
