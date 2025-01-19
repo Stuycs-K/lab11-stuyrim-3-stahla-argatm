@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 public class Knight extends Adventurer
 {
     public Knight (String name)
@@ -48,22 +49,23 @@ public class Knight extends Adventurer
     }
 
     //hurt or hinder the target adventurer, consume some special resource
-    public String specialAttack(Adventurer other)
+    public String specialAttack(ArrayList<Adventurer> other)
     {
         if(getSpecial() >= getSpecialMax())
         {
-            // steals other's special and damages other, heals self
+            // attacks all enemies
             setSpecial(0);
-            restoreSpecial(other.getSpecial() + 2); 
-            other.setSpecial(0);
-            other.applyDamage(3);
-            setHP(Math.min(getHP() + 2, getmaxHP()));
-            return getName() + " plundered " + other.getName() + "!";
+            for(int i = 0; i < other.size(); i++)
+            {
+                Adventurer tohit = other.get(i);
+                attack(tohit);
+            }
+            return getName() + " attacked all enemies!";
         }
         else
         {
             // attacks instead
-            return getName() + " wussed out, instead " + attack(other);
+            return getName() + " was too weak, instead " + attack(other.get(0));
         }
     }
 }

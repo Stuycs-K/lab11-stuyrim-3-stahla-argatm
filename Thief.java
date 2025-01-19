@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 public class Thief extends Adventurer
 {
     public Thief (String name)
@@ -46,22 +47,23 @@ public class Thief extends Adventurer
     }
 
     //hurt or hinder the target adventurer, consume some special resource
-    public String specialAttack(Adventurer other)
+    public String specialAttack(ArrayList<Adventurer> other) // this should be an AL with 1 element, the target
     {
+        Adventurer target = other.get(0);
         if(getSpecial() >= getSpecialMax())
         {
-            // steals other's special and damages other, heals self
+            // steals target's special and damages target, heals self
             setSpecial(0);
-            restoreSpecial(other.getSpecial() + 2); 
-            other.setSpecial(0);
-            other.applyDamage(3);
+            restoreSpecial(target.getSpecial() + 2); 
+            target.setSpecial(0);
+            target.applyDamage(3);
             setHP(Math.min(getHP() + 2, getmaxHP()));
-            return getName() + " plundered " + other.getName() + "!";
+            return getName() + " plundered " + target.getName() + "!";
         }
         else
         {
             // attacks instead
-            return getName() + " wussed out, instead " + attack(other);
+            return getName() + " wussed out, instead " + attack(target);
         }
     }
 }

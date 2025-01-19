@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 public class Healer extends Adventurer {
     public Healer (String name)
     {
@@ -15,7 +16,7 @@ public class Healer extends Adventurer {
         return false;
     }
 
-    public String getSpecialName() {return "Heal";}
+    public String getSpecialName() {return "Mana";}
     //accessor methods
     private int mana; // idk? thieves need to be brave to steal, i guess
     public int getSpecial() {return mana;}
@@ -45,16 +46,21 @@ public class Healer extends Adventurer {
     }
 
     //hurt or hinder the target adventurer, consume some special resource
-    public String specialAttack(Adventurer other)
+    public String specialAttack(ArrayList<Adventurer> other)
     {
         if(getSpecial() >= getSpecialMax())
         {
-            other.setHP(Math.min(other.getHP()+10, other.getmaxHP()));
-            return getName() + " healed " + other.getName() + " by 10";
+            setSpecial(0);
+            for(int i = 0; i < other.size(); i++)
+            {
+                Adventurer toheal = other.get(i);
+                toheal.setHP(Math.min(toheal.getHP()+5, toheal.getmaxHP()));
+            }
+            return getName() + " healed all party members by 5!";
         }
         else
         {
-            return getName() + " does not have enough mana!";
+            return getName() + " doesn't have mana, instead " + support(other.get(0));
         }
     }
 }
