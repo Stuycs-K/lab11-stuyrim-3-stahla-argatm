@@ -30,25 +30,23 @@ public class Knight extends Adventurer
     //hurt or hinder the target adventurer
     public String attack(Adventurer other)
     {
-        other.applyDamage(2);
-        setSpecial(Math.min(getSpecial() + 1, getSpecialMax()));
-        return getName() + " attacked " + other.getName() + "!";
+        other.applyDamage(5);
+        return getName() + " slashed " + other.getName() + " with a sword!";
     }
     
     //heal or buff the target adventurer
     public String support(Adventurer other)
     {
-        other.restoreSpecial(2);
-        other.setHP(Math.min(other.getHP() + 1, other.getmaxHP()));
-        return getName() + " healed " + other.getName() + " and restored their special!";
+        other.setHP(Math.min(other.getHP() + 2, other.getmaxHP()));
+        return getName() + " reinforced " + other.getName() + "'s armor!";
     }
 
     //heal or buff self
     public String support()
     {
-        setHP(Math.min(getHP() + 1, getmaxHP()));
+        setHP(Math.min(getHP() + 3, getmaxHP()));
         setSpecial(Math.min(getSpecial() + 1, getSpecialMax()));
-        return getName() + " healed by 1 and became more daring!";
+        return getName() + " polished their own armor!";
     }
 
     //hurt or hinder the target adventurer, consume some special resource

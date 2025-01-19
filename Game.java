@@ -104,7 +104,7 @@ public class Game
     {
         //TODO: MAKE SURE NONE OF THESE NAMES ARE OVER 13 CHARACTERS OR OVERFLOW ISSUE
         String[] knames = {"Mr. Knight", "Richard", "Arthur", "Edward", "Henry 8th", "Joan of Arc"};
-        String[] hnames = {"Clara Barton", "Walt Whitman", "Obamacare", "Florence", "Henry 8th's wife", "Healer Healyface"};
+        String[] hnames = {"Clara Barton", "Walt Whitman", "Obamacare", "Florence", "Wife of Henry", "Healyface"};
         String[] tnames = {"Goblin man", "Hubert", "Liam", "Robin Hood", "Jesse James", "Al Capone"};
 
         int type = (int)(Math.random() * 3);
@@ -318,6 +318,9 @@ public class Game
 
     while(!(input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit")))
     {
+        // check for any dead characters, remove them from their respective arraylists if so
+        
+
         input = userInput(in);
 
         //display event based on last turn's input

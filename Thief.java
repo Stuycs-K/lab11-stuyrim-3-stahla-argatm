@@ -19,7 +19,7 @@ public class Thief extends Adventurer
     {
         return false;
     }
-    public String getSpecialName() {return "Plunder";}
+    public String getSpecialName() {return "Stealth";}
     //accessor methods
     private int boldness; // idk? thieves need to be brave to steal, i guess
     public int getSpecial() {return boldness;}
@@ -29,25 +29,25 @@ public class Thief extends Adventurer
     //hurt or hinder the target adventurer
     public String attack(Adventurer other)
     {
-        other.applyDamage(2);
-        setSpecial(Math.min(getSpecial() + 1, getSpecialMax()));
+        other.applyDamage(3);
+        setSpecial(Math.min(getSpecial() + 2, getSpecialMax()));
         return getName() + " attacked " + other.getName() + "!";
     }
     
     //heal or buff the target adventurer
     public String support(Adventurer other)
     {
-        other.restoreSpecial(2);
-        other.setHP(Math.min(other.getHP() + 1, other.getmaxHP()));
+        other.restoreSpecial(4);
+        other.setHP(Math.min(other.getHP() + 2, other.getmaxHP()));
         return getName() + " healed " + other.getName() + " and restored their special!";
     }
 
     //heal or buff self
     public String support()
     {
-        setHP(Math.min(getHP() + 1, getmaxHP()));
-        setSpecial(Math.min(getSpecial() + 1, getSpecialMax()));
-        return getName() + " healed by 1 and became more daring!";
+        setHP(Math.min(getHP() + 2, getmaxHP()));
+        setSpecial(Math.min(getSpecial() + 4, getSpecialMax()));
+        return getName() + " retreated into the shadows!";
     }
 
     //hurt or hinder the target adventurer, consume some special resource

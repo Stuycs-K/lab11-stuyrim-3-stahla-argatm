@@ -29,23 +29,23 @@ public class Healer extends Adventurer {
     //hurt or hinder the target adventurer
     public String attack(Adventurer other)
     {
-        other.applyDamage(1);
-        return getName() + " attacked " + other.getName() + "!";
+        other.applyDamage(2);
+        return getName() + " hit " + other.getName() + "with a staff!";
     }
     
     //heal or buff the target adventurer
     public String support(Adventurer other)
     {
-        other.setHP(Math.min(other.getHP()+3, other.getmaxHP()));
-        return getName() + " healed " + other.getName() + " by 3";
+        other.setHP(Math.min(other.getHP()+4, other.getmaxHP()));
+        return getName() + " healed " + other.getName() + " by 4!";
     }
 
     //heal or buff self
     public String support()
     {
         setHP(Math.min(getHP() + 3, getmaxHP()));
-        setSpecial(Math.min(getSpecial() + 7, getSpecialMax()));
-        return getName() + " healed by 1 and became more daring!";
+        setSpecial(Math.min(getSpecial() + 3, getSpecialMax()));
+        return getName() + " healed by 3 and gained mana!";
     }
 
     //hurt or hinder the target adventurer, consume some special resource
