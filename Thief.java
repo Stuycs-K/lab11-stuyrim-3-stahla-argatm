@@ -31,7 +31,7 @@ public class Thief extends Adventurer
     {
         other.applyDamage(3);
         setSpecial(Math.min(getSpecial() + 2, getSpecialMax()));
-        return getName() + " attacked " + other.getName() + "!";
+        return getName() + " stole " + other.getName() + "'s stuff!";
     }
     
     //heal or buff the target adventurer

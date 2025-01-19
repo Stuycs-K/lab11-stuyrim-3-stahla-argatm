@@ -319,8 +319,16 @@ public class Game
     while(!(input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit")))
     {
         // check for any dead characters, remove them from their respective arraylists if so
-        
-
+        for(int e = enemies.size()-1; e >= 0; e--)
+        {
+            if(enemies.get(e).getHP() <= 0)
+                enemies.remove(e);
+        }
+        for(int p = party.size()-1; p >= 0; p--)
+        {
+            if(party.get(p).getHP() <= 0)
+                party.remove(p);
+        }
         input = userInput(in);
 
         //display event based on last turn's input

@@ -30,7 +30,7 @@ public class Healer extends Adventurer {
     public String attack(Adventurer other)
     {
         other.applyDamage(2);
-        return getName() + " hit " + other.getName() + "with a staff!";
+        return getName() + " hit " + other.getName() + " with a staff!";
     }
     
     //heal or buff the target adventurer
