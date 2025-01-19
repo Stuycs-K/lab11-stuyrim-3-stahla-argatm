@@ -102,6 +102,7 @@ public class Game
     //return a random adventurer, excludes skeleton / boss
     public static Adventurer createRandomAdventurer()
     {
+        //TODO: MAKE SURE NONE OF THESE NAMES ARE OVER 13 CHARACTERS OR OVERFLOW ISSUE
         String[] knames = {"Mr. Knight", "Richard", "Arthur", "Edward", "Henry 8th", "Joan of Arc"};
         String[] hnames = {"Clara Barton", "Walt Whitman", "Obamacare", "Florence", "Henry 8th's wife", "Healer Healyface"};
         String[] tnames = {"Goblin man", "Hubert", "Liam", "Robin Hood", "Jesse James", "Al Capone"};
@@ -232,7 +233,7 @@ public class Game
 
         drawParty(enemies, 2);
 
-        Text.go(31, 1);
+        Text.go(30, 2);
 
     }
 
@@ -246,6 +247,7 @@ public class Game
         String input = in.nextLine();
 
         //clear the text that was written
+        drawText(fixedLength("", "", 78), 30, 2);
 
         return input;
     }
@@ -310,7 +312,7 @@ public class Game
     //Main loop
 
     //display this prompt at the start of the game.
-    String preprompt = "Enter command for "+party.get(whichPlayer)+": (a)ttack/(sp)ecial/(su)pport/(q)uit";
+    String preprompt = party.get(whichPlayer) + "'s turn: choose (a)ttack/(sp)ecial/(su)pport/(q)uit + no. of target";
 
     drawText(preprompt, 31, 1);
 
@@ -402,7 +404,12 @@ public class Game
             {
                 //This is a player turn.
                 //Decide where to draw the following prompt:
-                String prompt = "Enter command for " + party.get(whichPlayer) + ": (a)ttack/(sp)ecial/(su)pport/(q)uit";
+                String prompt;
+                if(validinput)
+                    prompt = party.get(whichPlayer) + "'s turn: choose (a)ttack/(sp)ecial/(su)pport/(q)uit + no. of target";
+                else
+                    prompt = "INVALID INPUT! Choose (a)ttack/(sp)ecial/(su)pport/(q)uit + no. of target";
+
                 drawText(fixedLength(prompt, "", 80), 31, 1);
             }
             else
@@ -418,36 +425,37 @@ public class Game
         }
         else
         {
-//not the party turn!
+            //not the party turn!
 
 
-//enemy attacks a randomly chosen person with a randomly chosen attack.z`
-//Enemy action choices go here!
-/*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-//YOUR CODE HERE
-/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+            //enemy attacks a randomly chosen person with a randomly chosen attack.z`
+            //Enemy action choices go here!
+            /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+            //YOUR CODE HERE
+            /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
 
-//Decide where to draw the following prompt:
-String prompt = "press enter to see next turn";
+            //Decide where to draw the following prompt:
+            String prompt = "press enter to see next turn";
 
-whichOpponent++;
+            whichOpponent++;
 
-      }//end of one enemy.
+        } //end of one enemy.
 
-      //modify this if statement.
-      if(!partyTurn && whichOpponent >= enemies.size()){
-        //THIS BLOCK IS TO END THE ENEMY TURN
-        //It only triggers after the last enemy goes.
-        whichPlayer = 0;
-        turn++;
-        partyTurn=true;
-        //display this prompt before player's turn
-        String prompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
-      }
+        //modify this if statement.
+        if(!partyTurn && whichOpponent >= enemies.size())
+        {
+            //THIS BLOCK IS TO END THE ENEMY TURN
+            //It only triggers after the last enemy goes.
+            whichPlayer = 0;
+            turn++;
+            partyTurn=true;
+            //display this prompt before player's turn
+            String prompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
+        }
 
-      //display the updated screen after input has been processed.
-      //drawScreen();
+        //display the updated screen after input has been processed.
+        //drawScreen();
 
 
     }//end of main game loop
@@ -455,5 +463,5 @@ whichOpponent++;
 
     //After quit reset things:
     quit();
-  }
+    }
 }
