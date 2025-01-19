@@ -15,7 +15,10 @@ public class Healer extends Adventurer {
     {
         return false;
     }
-
+    public boolean specialParty()
+    {
+        return true;
+    }
     public String getSpecialName() {return "Mana";}
     //accessor methods
     private int mana; // idk? thieves need to be brave to steal, i guess

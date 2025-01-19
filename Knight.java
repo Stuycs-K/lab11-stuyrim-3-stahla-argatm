@@ -16,7 +16,10 @@ public class Knight extends Adventurer
     {
         return false;
     }
-
+    public boolean specialParty()
+    {
+        return false;
+    }
     public String getSpecialName() {return "Chivalry";}
     //accessor methods
     private int chivalry;

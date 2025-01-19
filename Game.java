@@ -344,7 +344,40 @@ public class Game
             }
             else if(input.startsWith("special") || input.startsWith("sp"))
             {
-                validinput = true;
+                boolean targeted = party.get(whichPlayer).specialTargeted();
+                if(targeted) // needs number also
+                {
+                    String[] split = input.split(" ");
+                    if(split.length == 2)
+                    {
+                        // I don't have to handle the case of a targeted special on player party, it'll never happen here
+                        int whichenemy = Integer.parseInt(split[1]);
+                        if(whichenemy > 0 & whichenemy <= enemies.size())
+                        {
+                            validinput = true;
+                            // actually do special
+                            ArrayList<Adventurer> al = new ArrayList<Adventurer>();
+                            al.add(enemies.get(whichenemy-1));
+                            String todraw = party.get(whichPlayer).specialAttack(al);
+                            drawScreen(); // update healths
+                            drawText(fixedLength(todraw, "[Enter]", 80), 31, 1);
+                            userInput(in); // lets user press enter
+                        }
+                    }
+                }
+                else // just needs special / sp
+                {
+                    validinput = true;
+                    ArrayList<Adventurer> al;
+                    if(party.get(whichPlayer).specialParty())
+                        al = party;
+                    else
+                        al = enemies;
+                    String todraw = party.get(whichPlayer).specialAttack(al);
+                    drawScreen(); // update healths
+                    drawText(fixedLength(todraw, "[Enter]", 80), 31, 1);
+                    userInput(in); // lets user press enter
+                }
             }
             else if(input.startsWith("support") || input.startsWith("su"))
             {
