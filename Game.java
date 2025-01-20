@@ -137,6 +137,7 @@ public class Game
 
             for(int i = 0; i < 3; i++)
             {
+                
                 int startcol = 3 + 26*i;
                 Adventurer thisone = party.get(i);
 
@@ -177,11 +178,18 @@ public class Game
                 int startcol = 3 + 40*i;
                 int availablewidth = 39-i-2;
                 drawText(fixedLength(thisone.getName(), "", availablewidth), startRow, startcol);
-                
                 String hpstuff = "HP: " + String.format("%2s", thisone.getHP()+"")+"/"+String.format("%2s", thisone.getmaxHP()+"");
                 String specstuff = thisone.getSpecialName() + ": " + thisone.getSpecial();
                 drawText(fixedLength(hpstuff, specstuff, availablewidth), startRow+1, startcol);
             }
+        }
+        else
+        {
+            Adventurer thisone = party.get(0);
+            drawText(fixedLength(thisone.getName(), "", 76), startRow, 3);
+            String hpstuff = "HP: " + String.format("%2s", thisone.getHP()+"")+"/"+String.format("%2s", thisone.getmaxHP()+"");
+            String specstuff = thisone.getSpecialName() + ": " + thisone.getSpecial();
+            drawText(fixedLength(hpstuff, specstuff, 76), startRow+1, 3);
         }
     }
 
@@ -305,7 +313,7 @@ public class Game
 
     if(true) // also assume 3 player characters
     {
-        for(int i = 0; i < 2; i++)
+        for(int i = 0; i < 1; i++)
         {
             party.add(createRandomAdventurer());
         }
