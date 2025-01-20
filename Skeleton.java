@@ -10,7 +10,7 @@ public class Skeleton extends Adventurer {
         bones = 5;
     }
 
-    public String getSpecialName() {return "";}
+    public String getSpecialName() {return "Calcium";}
     //accessor methods
     private int bones; // idk? thieves need to be brave to steal, i guess
     public int getSpecial() {return bones;}
@@ -21,34 +21,34 @@ public class Skeleton extends Adventurer {
     public String attack(Adventurer other)
     {
         other.applyDamage(3);
-        return getName() + " attacked " + other.getName() + "!";
+        return getName() + " rattled " + other.getName() + "'s bones!";
     }
     
     //heal or buff the target adventurer
     public String support(Adventurer other)
     {
         other.setHP(Math.min(other.getHP(), other.getmaxHP()));
-        return getName() + " healed other by 2!";
+        return getName() + " made " + other.getName() +  "'s bones stronger!";
     }
 
     //heal or buff self
     public String support()
     {
         setHP(Math.min(getHP() + 3, getmaxHP()));
-        return getName() + " healed by 3!";
+        return getName() + " reinforced their bones!";
     }
 
     //hurt or hinder the target adventurer, consume some special resource
-    public String specialAttack(Adventurer other)
+    public String specialAttack(ArrayList<Adventurer> other) // not used
     {
         if(getSpecial() >= getSpecialMax())
         {
-            other.setHP(Math.min(other.getHP()+10, other.getmaxHP()));
-            return getName() + " healed " + other.getName() + " by 10";
+            setHP(10);
+            return getName() + " repaired themselves!";
         }
         else
         {
-            return getName() + " does not have enough bones!";
+            return support();
         }
     }
 }

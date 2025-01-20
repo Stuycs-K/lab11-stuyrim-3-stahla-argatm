@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 public class Healer extends Adventurer {
-    private String type = "Healer";
+    private String type = "Healer ";
     public String getType() {
         return type;
     }

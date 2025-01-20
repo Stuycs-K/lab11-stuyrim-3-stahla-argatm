@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 public class Thief extends Adventurer
 {
-    private String type = " Thief";
+    private String type = "Thief ";
     public String getType() {
         return type;
     }
