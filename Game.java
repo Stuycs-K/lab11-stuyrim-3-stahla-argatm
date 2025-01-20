@@ -6,9 +6,23 @@ public class Game
     private static final int BORDER_COLOR = Text.BLACK;
     private static final int BORDER_BACKGROUND = Text.WHITE + Text.BACKGROUND;
 
+    private static Scanner in;
     public static void main(String[] args)
     {
-        run();
+        int mode = -1;
+        System.out.println("Which mode would you like to play? (Easy) / (Med)ium / (Hard) Boss Battle");
+        in = new Scanner(System.in);
+        while(mode == -1)
+        {
+            String input = in.nextLine();
+            if(input.toLowerCase().equals("easy"))
+                mode = 0;
+            if(input.toLowerCase().equals("med"))
+                mode = 1;
+            if(input.toLowerCase().equals("hard"))
+                mode = 2;
+        }
+        run(mode);
     }
     public static void allspaces() // prints 80x30 spaces. this is so we can jump around the terminal in drawBG.
     {
@@ -292,7 +306,7 @@ public class Game
         Text.go(32,1);
     }
 
-    public static void run()
+    public static void run(int mode)
     {
         //Clear and initialize
         Text.hideCursor();
@@ -310,12 +324,19 @@ public class Game
     // TODO: add chosen boss mode later or something
     // TODO: add random code for 1/2/3 enemies
 
-    if(true) // if 3 enemy mode
+    if(mode != 2)
     {
-        for(int i = 0; i < 3; i++)
+        for(int i = 0; i < ((mode == 0) ? 2 : 3); i++)
         {
             enemies.add(createRandomAdventurer());
         }
+    }
+    else
+    {
+        String[] snames = {"Jack", "Cleopatra", "Albert", "BONES-4000", "Van Bone"};
+        enemies.add(new Boss("Skeleton King", 50));
+        enemies.add(new Skeleton(snames[(int)(Math.random()*5)], 10));
+        enemies.add(new Skeleton(snames[(int)(Math.random()*5)], 10));
     }
     
 
@@ -336,7 +357,7 @@ public class Game
     int whichOpponent = 0;
     int turn = 0;
     String input = "";//blank to get into the main loop.
-    Scanner in = new Scanner(System.in);
+    //Scanner in = new Scanner(System.in);
     //Draw the window border
 
     //You can add parameters to draw screen!
