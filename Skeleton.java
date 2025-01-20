@@ -1,4 +1,24 @@
 public class Skeleton extends Adventurer {
+    public String[] icon = {
+    "    _______   ",
+    "   /       \\  ",
+    "  |  o   o  | ",
+    "  |    ^    | ",
+    "  |   '-'   | ",
+    "   \\_______/  ",
+    "     | |      ",
+    "   /  |  \\    ",
+    "  /   |   \\   ",
+    "  |   | |   |  "
+};
+    public String[] getIcon() {
+        return icon;
+    }
+    public String type = "Skeleton";
+    public String getType() {
+        return type;
+    }
+
     public Skeleton (String name)
     {
         super(name, 10);
