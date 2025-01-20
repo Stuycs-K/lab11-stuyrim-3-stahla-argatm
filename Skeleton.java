@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 public class Skeleton extends Adventurer {
     public String[] icon = {
     "    _______   ",
@@ -47,7 +48,7 @@ public class Skeleton extends Adventurer {
     //heal or buff the target adventurer
     public String support(Adventurer other)
     {
-        other.setHP(Math.min(other.getHP(), other.getmaxHP()));
+        other.setHP(Math.min(other.getHP()+2, other.getmaxHP()));
         return getName() + " made " + other.getName() +  "'s bones stronger!";
     }
 
@@ -58,6 +59,14 @@ public class Skeleton extends Adventurer {
         return getName() + " reinforced their bones!";
     }
 
+    public boolean specialParty()
+    {
+        return true;
+    }
+    public boolean specialTargeted()
+    {
+        return false;
+    }
     //hurt or hinder the target adventurer, consume some special resource
     public String specialAttack(ArrayList<Adventurer> other) // not used
     {
