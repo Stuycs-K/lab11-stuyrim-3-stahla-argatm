@@ -103,12 +103,12 @@ public class Game
     public static Adventurer createRandomAdventurer()
     {
         //TODO: MAKE SURE NONE OF THESE NAMES ARE OVER 13 CHARACTERS OR OVERFLOW ISSUE
-        String[] knames = {"Mr. Knight", "Richard", "Arthur", "Edward", "Henry 8th", "Joan of Arc"};
-        String[] hnames = {"Clara Barton", "Walt Whitman", "Obamacare", "Florence", "Wife of Henry", "Healyface"};
-        String[] tnames = {"Goblin man", "Hubert", "Liam", "Robin Hood", "Jesse James", "Al Capone"};
+        String[] knames = {"Alexander", "Richard", "Arthur", "Edward", "Henry 8th", "Joan of Arc", "Caesar"};
+        String[] hnames = {"Clara Barton", "Walt Whitman", "Robert Liston", "Florence", "Asclepius", "Hippocrates", "Cornelius"};
+        String[] tnames = {"Ma Barker", "Hubert", "Liam", "Robin Hood", "Jesse James", "Al Capone", "Humpfrey"};
 
         int type = (int)(Math.random() * 3);
-        int name = (int)(Math.random() * 6);
+        int name = (int)(Math.random() * 7);
         Adventurer guy;
         if(type == 2)
             guy = new Knight(knames[name], 27);
