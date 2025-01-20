@@ -1,7 +1,9 @@
 public class Graphics
 {
     public static void drawIcon(String[] icon, int row, int col)
-    {drawIcon(icon, row, col, false);}
+    {
+        drawIcon(icon, row, col, false);
+    }
 
     public static void drawIcon(String[] icon, int row, int col, boolean flipped)
     {
@@ -9,46 +11,52 @@ public class Graphics
         {
             String toprint = "";
             if(!flipped)
+            {
                 toprint = icon[i];
+            }
             else
             {
-                // reverses string
-                for(int ch = 0; ch < icon[i].length(); ch++)
+                for(int c = 0; c < icon[i].length(); c++)
                 {
-                    char c = icon[i].charAt(ch);
+                    char currentChar = icon[i].charAt(c);
+                    char flippedChar;
+                    if (currentChar == '/')
+                    {
+                        flippedChar = '\\';
+                    }
+                    else if (currentChar == 'L') 
+                    {
+                        flippedChar = '⅃';
+                    }
+                    else if (currentChar == '\\')
+                    {
+                        flippedChar = '/';
+                    }
+                    else
+                    {
+                        flippedChar = currentChar;
+                    }
 
-                    if(c == '\\')
-                        c = '/';
-                    else if(c == '/')
-                        c = '\\';
-                    else if(c == 'B')
-                        c = 'E';
-                    else if(c == '(')
-                        c = ')';
-                    else if(c == 'L')
-                        c = '⅃';
-
-
-                    toprint = c + toprint;
+                    toprint = flippedChar + toprint;
                 }
             }
-            Game.drawText(toprint, row+i, col);
+            Game.drawText(toprint, row + i, col);
         }
     }
 
     public static void drawSprites()
     {
-        // this should probably run only once per player/enemy "cycle", it may be strange otherwise
-
+        // Drawing enemies, no flip
         for(int i = 0; i < Game.enemies.size(); i++)
         {
-
-            drawIcon(Game.enemies.get(i).getIcon(), 5, 2 + i*13, false);
+            drawIcon(Game.enemies.get(i).getIcon(), 5, 2 + i * 13, false);
         }
 
+        // Drawing party, with flip
         for(int i = 0; i < Game.party.size(); i++)
         {
-            drawIcon(Game.party.get(i).getIcon(), 16, 68 - i*13, true);
+            drawIcon(Game.party.get(i).getIcon(), 16, 68 - i * 13, true);
         }
     }
 }
+
