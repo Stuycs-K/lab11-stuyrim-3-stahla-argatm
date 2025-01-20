@@ -160,15 +160,29 @@ public class Game
                 specstuff += thisone.getSpecialName() + ": " + thisone.getSpecial() + " ";
 
                 drawText(fixedLength(hpstuff, specstuff, 25, colorByPercent(thisone.getHP(), thisone.getmaxHP()), -1), startRow+1, startcol);
+            }
+            drawText("│", startRow, 28);
+            drawText("│", startRow+1, 28);           
+            drawText("│", startRow, 54);
+            drawText("│", startRow+1, 54);
+        }
+        else if(party.size() == 2)
+        {
+            drawText("│", startRow, 41);
+            drawText("│", startRow+1, 41);           
 
-                drawText("│", startRow, 28);
-                drawText("│", startRow+1, 28);
-                          
-                drawText("│", startRow, 54);
-                drawText("│", startRow+1, 54);
+            for(int i = 0; i < 2; i++)
+            {
+                Adventurer thisone = party.get(i);
+                int startcol = 3 + 40*i;
+                int availablewidth = 39-i-2;
+                drawText(fixedLength(thisone.getName(), "", availablewidth), startRow, startcol);
+                
+                String hpstuff = "HP: " + String.format("%2s", thisone.getHP()+"")+"/"+String.format("%2s", thisone.getmaxHP()+"");
+                String specstuff = thisone.getSpecialName() + ": " + thisone.getSpecial();
+                drawText(fixedLength(hpstuff, specstuff, availablewidth), startRow+1, startcol);
             }
         }
-        
     }
 
     public static String fixedLength(String start, String end, int len)
@@ -291,7 +305,7 @@ public class Game
 
     if(true) // also assume 3 player characters
     {
-        for(int i = 0; i < 3; i++)
+        for(int i = 0; i < 2; i++)
         {
             party.add(createRandomAdventurer());
         }
