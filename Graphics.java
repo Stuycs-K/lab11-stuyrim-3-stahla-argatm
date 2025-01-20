@@ -32,6 +32,14 @@ public class Graphics
                     {
                         flippedChar = '/';
                     }
+                    else if (currentChar == 'L')
+                    {
+                        flippedChar = '⅃';
+                    }
+                    else if (currentChar == 'B')
+                    {
+                        flippedChar = 'E';
+                    }
                     else
                     {
                         flippedChar = currentChar;

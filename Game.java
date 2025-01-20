@@ -141,9 +141,9 @@ public class Game
                 Adventurer thisone = party.get(i);
 
                 if(i != 0)
-                    drawText(fixedLength(thisone.getName() + "         No. " + i, "", 24), startRow, startcol+1);
+                    drawText(fixedLength(thisone.getName(), "(" + (i+1) + ") ", 24), startRow, startcol+1);
                 else 
-                    drawText(fixedLength(thisone.getName() + "         No. " + i, "", 25), startRow, startcol);
+                    drawText(fixedLength(thisone.getName(), "(" + (i+1) + ") ", 25), startRow, startcol);
 
                 // is it a good idea to cram hp and special in one line? idk...
                 String hpstuff = "";
@@ -176,7 +176,7 @@ public class Game
                 Adventurer thisone = party.get(i);
                 int startcol = 3 + 40*i;
                 int availablewidth = 39-i-2;
-                drawText(fixedLength(thisone.getName(), "", availablewidth), startRow, startcol);
+                drawText(fixedLength(thisone.getName(), "(" + (i+1) + ")", availablewidth), startRow, startcol);
                 String hpstuff = "HP: " + String.format("%2s", thisone.getHP()+"")+"/"+String.format("%2s", thisone.getmaxHP()+"");
                 String specstuff = thisone.getSpecialName() + ": " + thisone.getSpecial();
                 drawText(fixedLength(hpstuff, specstuff, availablewidth), startRow+1, startcol);
@@ -185,7 +185,7 @@ public class Game
         else if(party.size() == 1)
         {
             Adventurer thisone = party.get(0);
-            drawText(fixedLength(thisone.getName(), "", 76), startRow, 3);
+            drawText(fixedLength(thisone.getName(), "(1)", 76), startRow, 3);
             String hpstuff = "HP: " + String.format("%2s", thisone.getHP()+"")+"/"+String.format("%2s", thisone.getmaxHP()+"");
             String specstuff = thisone.getSpecialName() + ": " + thisone.getSpecial();
             drawText(fixedLength(hpstuff, specstuff, 76), startRow+1, 3);
