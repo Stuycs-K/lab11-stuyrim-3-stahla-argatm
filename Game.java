@@ -140,10 +140,11 @@ public class Game
                 int startcol = 3 + 26*i;
                 Adventurer thisone = party.get(i);
 
-                if(i != 0)
+                if(i != 0) {
                     drawText(fixedLength(thisone.getName(), "(" + (i+1) + ") ", 24), startRow, startcol+1);
-                else 
+                } else {
                     drawText(fixedLength(thisone.getName(), "(" + (i+1) + ") ", 25), startRow, startcol);
+                }
 
                 // is it a good idea to cram hp and special in one line? idk...
                 String hpstuff = "";
@@ -257,9 +258,13 @@ public class Game
 
         checkDead();
 
+        System.out.print("\033[32m");
         drawParty(party, 27);
+        System.out.print("\033[0m");
 
+        System.out.print("\033[31m");
         drawParty(enemies, 2);
+        System.out.print("\033[0m");
 
         Text.go(30, 2);
 
