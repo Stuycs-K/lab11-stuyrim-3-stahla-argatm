@@ -1,16 +1,19 @@
 import java.util.ArrayList;
 public class Thief extends Adventurer
 {
-    public String[] icon = {"X  Thief   X",
-                            "            ",
-                            "            ",
-                            "            ",
-                            "            ",
-                            "            ",
-                            "            ",
-                            "            ",
-                            "            ",
-                            "X          X"};
+public String[] icon = {
+                "   ///\\    ",
+                "  /o  o\\   ",
+                " |   ^   |  ",
+                " | \\_-_/ |  ",
+                " |==| |==|  ",
+                "  \\_|_|_/   ",
+                "   /   \\    ",
+                "  / / \\ \\   ",
+                " /_/   \\_\\  ",
+                "  L     L   "
+            };                            
+                            ;
     public String[] getIcon()
     {return icon;}
 
