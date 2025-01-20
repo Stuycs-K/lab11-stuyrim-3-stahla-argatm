@@ -27,8 +27,8 @@ public class Skeleton extends Adventurer {
     //heal or buff the target adventurer
     public String support(Adventurer other)
     {
-        support();
-        return;
+        other.setHP(Math.min(other.getHP(), other.getmaxHP()));
+        return getName() + " healed other by 2!";
     }
 
     //heal or buff self
