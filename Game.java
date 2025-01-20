@@ -175,7 +175,7 @@ public class Game
 
                 specstuff += thisone.getSpecialName() + ": " + thisone.getSpecial() + " ";
 
-                drawText(fixedLength(hpstuff, specstuff, 25, colorByPercent(thisone.getHP(), thisone.getmaxHP()), -1), startRow+1, startcol);
+                drawText(fixedLength(hpstuff, specstuff, 25, colorByPercent(thisone.getHP(), thisone.getmaxHP()), Integer.parseInt(color.substring(color.indexOf("[") + 1, color.indexOf("m")))), startRow+1, startcol);
                 System.out.print(color);
             }
             drawText("│", startRow, 28);

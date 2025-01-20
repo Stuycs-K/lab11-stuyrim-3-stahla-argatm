@@ -1,23 +1,23 @@
 import java.util.ArrayList;
 public class Boss extends Adventurer
 {
-    private String type = " ";
+    private String type = "Boss";
     public String getType() {
         return type;
     }
 
-    public String[] icon = {
-        "   /####\\   ",
-        "   |.##.|   ",
-        "  _| __ |_  ",
-        " /  ----  \\ ",
-        " |  ||||  | ",
-        " |  ||||  | ",
-        " |  ||||  | ",
-        "  \\______/  ",
-        "   / || \\   ",
-        "  L  ||  L  "
-    };                            
+    public String[] bossSkeleton = {
+        "   _______    ",
+        "  /       \\   ",
+        " /  o   o  \\  ",
+        "|     ^     | ",
+        "|    ---    | ",
+        " \\  \\___/  /  ",
+        "  |       |   ",
+        "  | /---\\ |   ",
+        " /_/     \\_\\  ",
+        "   L     L    "
+    };
                             
     public String[] getIcon()
     {return icon;}
