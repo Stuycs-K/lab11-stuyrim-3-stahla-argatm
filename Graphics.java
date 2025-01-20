@@ -13,9 +13,23 @@ public class Graphics
             else
             {
                 // reverses string
-                for(int c = 0; c < icon[i].length(); c++)
+                for(int ch = 0; ch < icon[i].length(); ch++)
                 {
-                    toprint = icon[i].charAt(c) + toprint;
+                    char c = icon[i].charAt(ch);
+
+                    if(c == '\\')
+                        c = '/';
+                    else if(c == '/')
+                        c = '\\';
+                    else if(c == 'B')
+                        c = 'E';
+                    else if(c == '(')
+                        c = ')';
+                    else if(c == 'L')
+                        c = '⅃';
+
+
+                    toprint = c + toprint;
                 }
             }
             Game.drawText(toprint, row+i, col);
