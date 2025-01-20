@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public abstract class Adventurer{
   private String name;
   private int HP,maxHP;
+  public String type;
 
   //Abstract methods are meant to be implemented in child classes.
   /*
@@ -10,6 +11,7 @@ public abstract class Adventurer{
   consumable resource (mana/rage/money/witts etc)
   */
 
+  public abstract String getType();
   //give it a short name (fewer than 13 characters)
   public abstract String getSpecialName();
   //accessor methods

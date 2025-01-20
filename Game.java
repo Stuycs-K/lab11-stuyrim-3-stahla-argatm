@@ -141,9 +141,9 @@ public class Game
                 Adventurer thisone = party.get(i);
 
                 if(i != 0) {
-                    drawText(fixedLength(thisone.getName(), "(" + (i+1) + ") ", 24), startRow, startcol+1);
+                    drawText(fixedLength(thisone.getName(), thisone.getType() + "(" + (i+1) + ") ", 24), startRow, startcol+1);
                 } else {
-                    drawText(fixedLength(thisone.getName(), "(" + (i+1) + ") ", 25), startRow, startcol);
+                    drawText(fixedLength(thisone.getName(), thisone.getType() + "(" + (i+1) + ") ", 25), startRow, startcol);
                 }
 
                 // is it a good idea to cram hp and special in one line? idk...

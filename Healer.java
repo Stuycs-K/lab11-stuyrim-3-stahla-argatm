@@ -1,5 +1,9 @@
 import java.util.ArrayList;
 public class Healer extends Adventurer {
+    private String type = "Healer";
+    public String getType() {
+        return type;
+    }
 
     public String[] icon = {"    ///\\ /X\\",
                             "    |..| \\X/",

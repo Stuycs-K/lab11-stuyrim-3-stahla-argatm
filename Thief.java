@@ -1,7 +1,11 @@
 import java.util.ArrayList;
 public class Thief extends Adventurer
 {
-public String[] icon = {
+    private String type = " Thief";
+    public String getType() {
+        return type;
+    }
+    public String[] icon = {
                 "   ///\\    ",
                 "  /o  o\\   ",
                 " |   ^   |  ",

@@ -1,6 +1,11 @@
 import java.util.ArrayList;
 public class Knight extends Adventurer
 {
+    private String type = "Knight";
+    public String getType() {
+        return type;
+    }
+
     public String[] icon = {
         "    ///\\    ",
         "   |####|   ",
