@@ -11,6 +11,8 @@ public class Thief extends Adventurer
                             "            ",
                             "            ",
                             "X          X"};
+    public String[] getIcon()
+    {return icon;}
 
     public Thief (String name)
     {

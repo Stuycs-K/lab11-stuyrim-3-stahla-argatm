@@ -1,16 +1,18 @@
 import java.util.ArrayList;
 public class Healer extends Adventurer {
 
-    public String[] icon = {"X  Healer   X",
-                            "            ",
-                            "            ",
-                            "            ",
-                            "            ",
-                            "            ",
-                            "            ",
-                            "            ",
-                            "            ",
-                            "X          X"};
+    public String[] icon = {"    ///\\ /X\\",
+                            "    |..| \\X/",
+                            "   _|--|_ | ",
+                            "  | ////| | ",
+                            "  |  (====B ",
+                            "  |  \\  | | ",
+                            "  |   / | | ",
+                            "  | \\   | | ",
+                            "  |/---\\| | ",
+                            "   L   L  | "};
+    public String[] getIcon()
+    {return icon;}
     
     public Healer (String name)
     {

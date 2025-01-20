@@ -19,7 +19,7 @@ public abstract class Adventurer{
   public abstract boolean specialTargeted();
   public abstract boolean specialParty(); // if false, pass in enemies, if true, pass in players
 
-  public String[] icon; // 12 wide, 10 high
+  public abstract String[] getIcon(); // 12 wide, 10 high
  
   //concrete method written using abstract methods.
   //refill special resource by amount, but only up to at most getSpecialMax()

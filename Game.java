@@ -23,7 +23,6 @@ public class Game
         }
     }
 
-
     //Display the borders of your screen that will not change.
     //Do not write over the blank areas where text will appear or parties will appear.
     public static void drawBackground()
@@ -308,7 +307,7 @@ public class Game
 
     if(true) // if 3 enemy mode
     {
-        for(int i = 0; i < 1; i++)
+        for(int i = 0; i < 3; i++)
         {
             enemies.add(createRandomAdventurer());
         }
@@ -337,7 +336,7 @@ public class Game
 
     //You can add parameters to draw screen!
     drawScreen();//initial state.
-
+    Graphics.drawSprites();
     //Main loop
 
     //display this prompt at the start of the game.

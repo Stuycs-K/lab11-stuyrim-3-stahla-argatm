@@ -11,6 +11,8 @@ public class Knight extends Adventurer
                             "            ",
                             "            ",
                             "X          X"};
+    public String[] getIcon()
+    {return icon;}
 
     public Knight (String name)
     {
