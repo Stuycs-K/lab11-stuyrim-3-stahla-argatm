@@ -1,5 +1,17 @@
 import java.util.ArrayList;
 public class Healer extends Adventurer {
+
+    public String[] icon = {"X  Healer   X",
+                            "            ",
+                            "            ",
+                            "            ",
+                            "            ",
+                            "            ",
+                            "            ",
+                            "            ",
+                            "            ",
+                            "X          X"};
+    
     public Healer (String name)
     {
         super(name, 18);

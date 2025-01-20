@@ -1,6 +1,17 @@
 import java.util.ArrayList;
 public class Knight extends Adventurer
 {
+    public String[] icon = {"X  Knight  X",
+                            "            ",
+                            "            ",
+                            "            ",
+                            "            ",
+                            "            ",
+                            "            ",
+                            "            ",
+                            "            ",
+                            "X          X"};
+
     public Knight (String name)
     {
         super(name, 18);

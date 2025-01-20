@@ -1,6 +1,17 @@
 import java.util.ArrayList;
 public class Thief extends Adventurer
 {
+    public String[] icon = {"X  Thief   X",
+                            "            ",
+                            "            ",
+                            "            ",
+                            "            ",
+                            "            ",
+                            "            ",
+                            "            ",
+                            "            ",
+                            "X          X"};
+
     public Thief (String name)
     {
         super(name, 18);
