@@ -183,13 +183,18 @@ public class Game
                 drawText(fixedLength(hpstuff, specstuff, availablewidth), startRow+1, startcol);
             }
         }
-        else
+        else if(party.size() == 1)
         {
             Adventurer thisone = party.get(0);
             drawText(fixedLength(thisone.getName(), "", 76), startRow, 3);
             String hpstuff = "HP: " + String.format("%2s", thisone.getHP()+"")+"/"+String.format("%2s", thisone.getmaxHP()+"");
             String specstuff = thisone.getSpecialName() + ": " + thisone.getSpecial();
             drawText(fixedLength(hpstuff, specstuff, 76), startRow+1, 3);
+        }
+        else
+        {
+            drawText(fixedLength("", "", 76), startRow, 3);
+            drawText(fixedLength("", "", 76), startRow+1, 3);
         }
     }
 
@@ -303,7 +308,7 @@ public class Game
 
     if(true) // if 3 enemy mode
     {
-        for(int i = 0; i < 3; i++)
+        for(int i = 0; i < 1; i++)
         {
             enemies.add(createRandomAdventurer());
         }
@@ -342,15 +347,23 @@ public class Game
 
     while(!(input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit")))
     {
-        // check for any dead characters, remove them from their respective arraylists if so
+        // win / lose condition?
 
         if(enemies.size() == 0)
         {
             // Winning condition
+            String todraw = "Congratulations! You won the battle!";
+            drawText(fixedLength(todraw, "[Enter]", 80), 31, 1);
+            userInput(in);
+            break;
         }
         else if(party.size() == 0)
         {
             // Lose condition
+            String todraw = "Unfortunately, you lost. You should try again!";
+            drawText(fixedLength(todraw, "[Enter]", 80), 31, 1);
+            userInput(in);
+            break;
         }
 
         input = userInput(in);
