@@ -57,13 +57,17 @@ public class Graphics
         // Drawing enemies, no flip
         for(int i = 0; i < Game.enemies.size(); i++)
         {
+            System.out.print("\033[31m");
             drawIcon(Game.enemies.get(i).getIcon(), 5, 2 + i * 13, false);
+            System.out.print("\033[0m");
         }
 
         // Drawing party, with flip
         for(int i = 0; i < Game.party.size(); i++)
         {
+            System.out.print("\033[32m");
             drawIcon(Game.party.get(i).getIcon(), 16, 68 - i * 13, true);
+            System.out.print("\033[0m");
         }
     }
 }
