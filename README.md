@@ -18,40 +18,40 @@ Make a clear list of features that work/dont work
 
 ## Adventurer Subclasses
 
-Thief: already made 
+Thief: :white_check_mark: 
 > (low stats, gives special and special steals special from enemies and heals self, damages a little)
 
-Healer: 
+Healer: :white_check_mark:
 > less low health than ^, heals (4hp?), special heals all
 
-Knight: 
+Knight: :white_check_mark:
 > mid health (27?) high attack (6?) weak support, special attacks all enemies
 
-Skeleton: 
+Skeleton: NOT IMPLEMENTED
 > low/mid states (10hp, 3/4 attack, weak support, special is probably to heal self fully)
 
-*Skeleton King* (boss): 
+*Skeleton King* NOT IMPLEMENTED
 > 50 hp, 8 attack, special summons skeletons (if team isn't full), support gives himself full special (low amt, more of a turn he uses to charge)
 
 ## Gameplay Details
 
-- Generate a random party of three adventurers (should have all 3 types of adventurers)
+:white_check_mark: Generate a random party of three adventurers (should have all 3 types of adventurers)
 
-- Play against 1-3 random adventurers (3 normal, 2 normal, or 1 boss)
+:white_check_mark: Play against 1-3 random adventurers (3 normal, 2 normal, or 1 boss)
 
-- Use attacks/specials on enemies
+:white_check_mark: Use attacks/specials on enemies
 
-- Use support on team
+:white_check_mark: Use support on team
 
-- Parse input to do ^, or quit
+:white_check_mark: Parse input to do ^, or quit
 
-- Display results as text inside border
+:white_check_mark: Display results as text inside border
 
 ### Possible Additional features
 
-[ ] Display enemy stats / names on top Name, Health, Special
+:white_check_mark: Display enemy stats / names on top Name, Health, Special
 
-[ ] Display friendly stats ^ on bottom
+:white_check_mark: Display friendly stats ^ on bottom
 
 [ ] Display friendlies / enemies as sprites in the middle (gonna be hard)
 
