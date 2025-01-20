@@ -57,6 +57,8 @@ public abstract class Adventurer{
 
   public void applyDamage(int amount){
     this.HP -= amount;
+    if(this.HP < 0)
+        this.HP = 0;
   }
 
   //You did it wrong if this happens.

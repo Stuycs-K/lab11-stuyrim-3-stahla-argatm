@@ -251,6 +251,8 @@ public class Game
 
         //draw player party
 
+        checkDead();
+
         drawParty(party, 27);
 
         drawParty(enemies, 2);
@@ -313,7 +315,7 @@ public class Game
 
     if(true) // also assume 3 player characters
     {
-        for(int i = 0; i < 1; i++)
+        for(int i = 0; i < 3; i++)
         {
             party.add(createRandomAdventurer());
         }
@@ -341,16 +343,16 @@ public class Game
     while(!(input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit")))
     {
         // check for any dead characters, remove them from their respective arraylists if so
-        for(int e = enemies.size()-1; e >= 0; e--)
+
+        if(enemies.size() == 0)
         {
-            if(enemies.get(e).getHP() <= 0)
-                enemies.remove(e);
+            // Winning condition
         }
-        for(int p = party.size()-1; p >= 0; p--)
+        else if(party.size() == 0)
         {
-            if(party.get(p).getHP() <= 0)
-                party.remove(p);
+            // Lose condition
         }
+
         input = userInput(in);
 
         //display event based on last turn's input
@@ -514,5 +516,19 @@ public class Game
 
     //After quit reset things:
     quit();
+    }
+
+    public static void checkDead()
+    {
+        for(int e = enemies.size()-1; e >= 0; e--)
+        {
+            if(enemies.get(e).getHP() <= 0)
+                enemies.remove(e);
+        }
+        for(int p = party.size()-1; p >= 0; p--)
+        {
+            if(party.get(p).getHP() <= 0)
+                party.remove(p);
+        }
     }
 }
