@@ -1,7 +1,7 @@
 public class Skeleton extends Adventurer {
     public Skeleton (String name)
     {
-        super(name, 18);
+        super(name, 10);
         bones = 5;
     }
     public Skeleton (String name, int hp)
@@ -20,23 +20,22 @@ public class Skeleton extends Adventurer {
     //hurt or hinder the target adventurer
     public String attack(Adventurer other)
     {
-        other.applyDamage(1);
+        other.applyDamage(3);
         return getName() + " attacked " + other.getName() + "!";
     }
     
     //heal or buff the target adventurer
     public String support(Adventurer other)
     {
-        other.setHP(Math.min(other.getHP()+3, other.getmaxHP()));
-        return getName() + " healed " + other.getName() + " by 3";
+        support();
+        return;
     }
 
     //heal or buff self
     public String support()
     {
         setHP(Math.min(getHP() + 3, getmaxHP()));
-        setSpecial(Math.min(getSpecial() + 7, getSpecialMax()));
-        return getName() + " healed by 1 and became more daring!";
+        return getName() + " healed by 3!";
     }
 
     //hurt or hinder the target adventurer, consume some special resource
