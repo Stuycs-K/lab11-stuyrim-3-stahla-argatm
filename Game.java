@@ -141,9 +141,10 @@ public class Game
     *Caffeine: 20 Mana: 10   Snark: 1
     * ***THIS ROW INTENTIONALLY LEFT BLANK***
     */
-    public static void drawParty(ArrayList<Adventurer> party,int startRow)
+    public static void drawParty(ArrayList<Adventurer> party,int startRow, String color)
     {
         // if drawing 3, each one has (80-2)/3 = 26 char for themselves. (effectively 25 to look good)
+        System.out.print(color);
         if(party.size() == 3)
         {
             int realsize = 25;
@@ -175,6 +176,7 @@ public class Game
                 specstuff += thisone.getSpecialName() + ": " + thisone.getSpecial() + " ";
 
                 drawText(fixedLength(hpstuff, specstuff, 25, colorByPercent(thisone.getHP(), thisone.getmaxHP()), -1), startRow+1, startcol);
+                System.out.print(color);
             }
             drawText("│", startRow, 28);
             drawText("│", startRow+1, 28);           
@@ -210,6 +212,7 @@ public class Game
             drawText(fixedLength("", "", 76), startRow, 3);
             drawText(fixedLength("", "", 76), startRow+1, 3);
         }
+        System.out.print("\033[0m");
     }
 
     public static String fixedLength(String start, String end, int len)
@@ -272,13 +275,9 @@ public class Game
 
         checkDead();
 
-        System.out.print("\033[32m");
-        drawParty(party, 27);
-        System.out.print("\033[0m");
+        drawParty(party, 27, "\033[32m");
 
-        System.out.print("\033[31m");
-        drawParty(enemies, 2);
-        System.out.print("\033[0m");
+        drawParty(enemies, 2, "\033[31m");
 
         Text.go(30, 2);
 
