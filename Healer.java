@@ -54,6 +54,8 @@ public class Healer extends Adventurer {
     //heal or buff the target adventurer
     public String support(Adventurer other)
     {
+        if(other == this)
+            return support();
         other.setHP(Math.min(other.getHP()+4, other.getmaxHP()));
         return getName() + " healed " + other.getName() + " by 4!";
     }

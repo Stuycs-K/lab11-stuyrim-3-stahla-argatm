@@ -505,12 +505,19 @@ public class Game
             if(thisOppo.getSpecial() >= thisOppo.getSpecialMax()) // only tries special if it has enough resource
                 choicebound = 3;
 
-            //int choice = (int)(Math.random() * choicebound);
-            int choice = 0;
-            if(choice == 1)
-            {}
-            else if(choice == 2)
-            {}
+            int choice = (int)(Math.random() * choicebound);
+            if(choice == 1) // support
+            {
+                int targetchoice = (int)(Math.random() * enemies.size());
+                Adventurer target = enemies.get(targetchoice);
+                String todraw = thisOppo.support(target);
+                drawScreen(); // update healths
+                drawText(fixedLength(todraw, "[Enter]", 80), 31, 1);
+            }
+            else if(choice == 2) // special
+            {
+
+            }
             else
             {
                 // attack

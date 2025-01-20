@@ -57,6 +57,8 @@ public class Thief extends Adventurer
     //heal or buff the target adventurer
     public String support(Adventurer other)
     {
+        if(other == this)
+            return support();
         other.restoreSpecial(4);
         other.setHP(Math.min(other.getHP() + 2, other.getmaxHP()));
         return getName() + " healed " + other.getName() + " and restored their special!";
