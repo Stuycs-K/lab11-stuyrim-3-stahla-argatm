@@ -59,12 +59,14 @@ public class Skeleton extends Adventurer {
     }
 
     //hurt or hinder the target adventurer, consume some special resource
-    public String specialAttack(Adventurer other)
+    public String specialAttack(ArrayList<Adventurer> others)
     {
         if(getSpecial() >= getSpecialMax())
         {
-            other.setHP(Math.min(other.getHP()+10, other.getmaxHP()));
-            return getName() + " healed " + other.getName() + " by 10";
+            for (int i = 0; i < others.size; i++) {
+                others[i].setHP(Math.min(others[i].getHP()+4, others[i].getmaxHP()));
+                return getName() + " healed " + others[i].getName() + " by 4";
+            }
         }
         else
         {
